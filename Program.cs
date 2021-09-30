@@ -14,19 +14,19 @@ namespace JogoDaVelha
     static void Main(string[] args)
     {
       for(int i=0; i < 9; i++){     
-
         //Cria tabuleiro
         Tabuleiro();
         
         if(jogador % 2 == 0) {
-          Console.WriteLine("Vez do Jogador 1!");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Vez do Jogador 1!");
         } else {
-          Console.WriteLine("Vez do Jogador 2!");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Vez do Jogador 2!");
         }
         //Captura a escolha do jogador
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.ResetColor();
         Console.Write("Escolha sua opção entre 1 à 9: ");
+        Console.ResetColor();
         EscolhaOpcao();
 
       bool validaOpcao = false;
@@ -54,7 +54,11 @@ namespace JogoDaVelha
       Console.WriteLine("\n");
       Console.WriteLine("Jogo da Velha");
       Console.WriteLine("##############");
-      Console.WriteLine("Jogador 1: X \nJogador 2: O");
+      Console.ForegroundColor = ConsoleColor.Red;
+      Console.WriteLine("Jogador 1: X (Letras em vermelho)");
+      Console.ForegroundColor = ConsoleColor.Yellow;
+      Console.WriteLine("Jogador 2: X (Letras em amarelo)");
+      Console.ResetColor();
       Console.WriteLine("##############\n");
 
       Console.ForegroundColor = ConsoleColor.Green;
