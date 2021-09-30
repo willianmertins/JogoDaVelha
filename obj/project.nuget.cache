@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Akkkz90atbPHtIsNBK5obOc7zZkunh5WK/qgAosnded5nG6AFla6WblVQnB8Sn3Rzgug/A9j1H6KDfbbZ8tygA==",
+  "dgSpecHash": "5xXDWkqGWMNJTLCIPiUup5Wa0MfRWyBdsUIDuPluoDs/r17bnkWtlxXfx3fkqOPMtBNr2mD4gHXjJgcw4S5zyw==",
   "success": true,
   "projectFilePath": "C:\\Projetos DSV\\JogoDaVelha\\JogoDaVelha.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\WiLL\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.9\\microsoft.netcore.app.host.win-x64.5.0.9.nupkg.sha512"
+  ],
   "logs": []
 }

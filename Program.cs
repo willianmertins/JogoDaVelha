@@ -13,16 +13,11 @@ namespace JogoDaVelha
     static bool winner = false;
     static void Main(string[] args)
     {
-      do {
-        Console.Clear();
-        Console.WriteLine("Jogo da Velha");
-        Console.WriteLine("##############");
-        Console.WriteLine("Jogador 1: X \nJogador 2: O");
-        Console.WriteLine("##############\n");
+      while(!winner){     
 
         //Cria tabuleiro
         Tabuleiro();
-
+        
         if(jogador % 2 == 0) {
           Console.WriteLine("Vez do Jogador 1!");
         } else {
@@ -32,7 +27,7 @@ namespace JogoDaVelha
         Console.ForegroundColor = ConsoleColor.Green;
         Console.ResetColor();
         Console.Write("Escolha sua opção entre 1 à 9: ");
-        escolhaOpcao();
+        EscolhaOpcao();
 
       bool validaOpcao = false;
       while (!validaOpcao) {
@@ -40,22 +35,28 @@ namespace JogoDaVelha
           vetor[opcao] = jogador % 2 == 0 ? 'X' : 'O';
           jogador++;
           validaOpcao = true;
+          ValidaWinner();
         } else {
           opcao++;
           Console.WriteLine("Desculpe! A opção \"{0}\" já foi escolhida...", opcao);
           Console.Write("Escolha outra opção: ");
-          escolhaOpcao();
+          EscolhaOpcao();
         }
-      }
-      validaWinner();
-
-     } while(!winner);
-          
+      }   
+     }       
     }
     
     private static void Tabuleiro(){
+      Console.Clear();
+      Console.WriteLine("\n");
+      Console.WriteLine("Jogo da Velha");
+      Console.WriteLine("##############");
+      Console.WriteLine("Jogador 1: X \nJogador 2: O");
+      Console.WriteLine("##############\n");
+
       Console.ForegroundColor = ConsoleColor.Green;
       Console.WriteLine("_________________");
+
       for(int i = 0; i < 3; i++){
         Console.WriteLine("  {0}  |  {1}  |  {2}  ",vetor[i*3],vetor[i*3+1],vetor[i*3+2]);
         Console.WriteLine("_____|_____|_____");
@@ -63,27 +64,37 @@ namespace JogoDaVelha
       Console.ResetColor();
     }
 
-    private static int escolhaOpcao(){
+    private static int EscolhaOpcao(){
+
       bool error = false;
       string str = string.Empty;
 
       while (!error) {
         str = Console.ReadLine();
         error = Regex.IsMatch(str,@"^\d{1}$");
-        Console.WriteLine("Desculpe! É apenas permitido números entre 1 à 9");
-        Console.Write("Escolha uma opção: ");
+        if (error == false || int.Parse(str) == 0) {
+            Console.WriteLine("Desculpe! É apenas permitido números entre 1 à 9");
+            Console.Write("Escolha uma opção: ");
+            error = false;
+         }
       }
-
       opcao = int.Parse(str);
       opcao--;
       return opcao;
     }
 
-    private static bool validaWinner(){
-      // winner = true;
-      Console.WriteLine("\nJogador 1 é o ganhador!!");
+    private static bool ValidaWinner(){
+      List<char> str = new List<char> { 'X', 'O' };
+      //vetor[0] vetor[1] vetor[2]
+      foreach(char c in str) {
+        if (vetor[0] == c && vetor[1] == c && vetor[2] == c) {
+            Tabuleiro();
+            int ganhador = c == 'X' ? 1 : 2;
+            Console.WriteLine("\nJogador {0} é o ganhador!!",ganhador);
+            return winner=true;
+        }        
+       }
       return winner;
-
     }
   }
 }
