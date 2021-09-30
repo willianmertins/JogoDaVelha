@@ -7,7 +7,7 @@ Aplicativo do famoso Jogo da Velha onde foi desenvolvido com uso da linguagem C#
 
 ## Requisitos
 - Jogo ocorre em um tabuleiro de 3 por 3;
-- Jogo será jogador por duas pessoas, sendo de forma alternada;
+- Jogo será jogado por duas pessoas de forma alternada;
 - Jogador 1 será sempre o primeiro a jogar;
 - Jogador 1 será representado pela letra `"X"` e letras na cor `vermelha`
 - Jogador 2 será representado pela letra `"O"` e letras na cor `amarela`;
