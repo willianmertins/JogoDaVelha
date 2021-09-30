@@ -17,6 +17,7 @@ namespace JogoDaVelha
         //Cria tabuleiro
         Tabuleiro();
         
+        //Valida a vez de qual jogador
         if(jogador % 2 == 0) {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nVez do Jogador 1!");
@@ -24,20 +25,27 @@ namespace JogoDaVelha
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\nVez do Jogador 2!");
         }
+
         //Captura a escolha do jogador
         Console.Write("Escolha sua opção entre 1 à 9: ");
         Console.ResetColor();
         EscolhaOpcao();
 
+      /*
+       Realiza a validação das opções escolhida pelo usuário, e caso for sucesso será alterada no vetor
+       */
       bool validaOpcao = false;
       while (!validaOpcao) {
         if(vetor[opcao] != 'X' && vetor[opcao] != 'O'){
           vetor[opcao] = jogador % 2 == 0 ? 'X' : 'O';
           jogador++;
           validaOpcao = true;
+
+        //Verificar se existe um ganhador, caso for sucesso será retornado TRUE, e logo após finalizar o jogo
           ValidaWinner();
           if (winner) return;
-        } else {
+
+        } else {                        
           opcao++;
           Console.WriteLine("Desculpe! A opção \"{0}\" já foi escolhida...", opcao);
           Console.Write("Escolha outra opção: ");
@@ -64,6 +72,7 @@ namespace JogoDaVelha
       Console.ForegroundColor = ConsoleColor.Green;
       Console.WriteLine("_________________");
 
+      //Monta Tabuleiro de 3x3 no console
       for(int i = 0; i < 3; i++){
         Console.WriteLine("  {0}  |  {1}  |  {2}  ",vetor[i*3],vetor[i*3+1],vetor[i*3+2]);
         Console.WriteLine("_____|_____|_____");
@@ -76,6 +85,7 @@ namespace JogoDaVelha
       bool error = false;
       string str = string.Empty;
 
+      //Valida o input digitado pelo usuário se está dentro dos parametros de 1 a 9
       while (!error) {
         str = Console.ReadLine();
         error = Regex.IsMatch(str,@"^\d{1}$");
@@ -92,9 +102,12 @@ namespace JogoDaVelha
 
     private static bool ValidaWinner(){
       List<char> str = new() { 'X', 'O' };
+      
+      //Criar uma lista com todas as possibilidades de vitorias
       List<string> coordWin = new() { "0;1;2", "0;3;6", "0;4;8", "1;4;7", "3;4;5", "6;7;8", "2;5;8", "2;4;6" };
         foreach (char c in str) {
-
+            
+            //Navega na lista para validar se existe um ganhador de acordo com as "coordWin"
             foreach(string s in coordWin) {
 
                 string[] item = s.Split(';');
