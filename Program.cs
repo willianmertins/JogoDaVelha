@@ -9,10 +9,6 @@ namespace JogoDaVelha
     static char[] vetor = { '1', '2', '3', '4', '5','6', '7', '8', '9'};
     static int jogador = 0;
     static int opcao = 0;
-    List<int> lstVitoria = new List<int>();
-
-    lstVitoria.Add()
-
 
     static bool winner = false;
     static void Main(string[] args)
