@@ -19,10 +19,10 @@ namespace JogoDaVelha
         
         if(jogador % 2 == 0) {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Vez do Jogador 1!");
+            Console.WriteLine("\nVez do Jogador 1!");
         } else {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Vez do Jogador 2!");
+            Console.WriteLine("\nVez do Jogador 2!");
         }
         //Captura a escolha do jogador
         Console.Write("Escolha sua opção entre 1 à 9: ");
@@ -57,7 +57,7 @@ namespace JogoDaVelha
       Console.ForegroundColor = ConsoleColor.Red;
       Console.WriteLine("Jogador 1: X (Letras em vermelho)");
       Console.ForegroundColor = ConsoleColor.Yellow;
-      Console.WriteLine("Jogador 2: X (Letras em amarelo)");
+      Console.WriteLine("Jogador 2: O (Letras em amarelo)");
       Console.ResetColor();
       Console.WriteLine("##############\n");
 
