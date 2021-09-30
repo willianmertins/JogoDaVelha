@@ -1,4 +1,4 @@
-# JogoDaVelha
+# Jogo da Velha :hash:
 Aplicativo do famoso Jogo da Velha onde foi desenvolvido com uso da linguagem C#, e sendo executado através do Windows Console.
 
 💻 Tecnologia utilizada
