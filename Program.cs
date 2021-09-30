@@ -13,7 +13,7 @@ namespace JogoDaVelha
     static bool winner = false;
     static void Main(string[] args)
     {
-      while(!winner){     
+      for(int i=0; i < 9; i++){     
 
         //Cria tabuleiro
         Tabuleiro();
@@ -36,6 +36,7 @@ namespace JogoDaVelha
           jogador++;
           validaOpcao = true;
           ValidaWinner();
+          if (winner) return;
         } else {
           opcao++;
           Console.WriteLine("Desculpe! A opção \"{0}\" já foi escolhida...", opcao);
@@ -43,7 +44,9 @@ namespace JogoDaVelha
           EscolhaOpcao();
         }
       }   
-     }       
+     }
+     Tabuleiro();
+     Console.WriteLine("\nInfelizmente! Acabou em empate :(");
     }
     
     private static void Tabuleiro(){
