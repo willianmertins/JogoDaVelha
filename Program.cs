@@ -85,14 +85,22 @@ namespace JogoDaVelha
 
     private static bool ValidaWinner(){
       List<char> str = new List<char> { 'X', 'O' };
-      //vetor[0] vetor[1] vetor[2]
+      List<string> coordWin = new List<string> { "0;1;2", "0;3;6", "1;4;7", "3;4;5", "6;7;8", "2;5;8", "2;4;6", "0;4;8" };
+      int ganhador = 0;
+
       foreach(char c in str) {
-        if (vetor[0] == c && vetor[1] == c && vetor[2] == c) {
-            Tabuleiro();
-            int ganhador = c == 'X' ? 1 : 2;
-            Console.WriteLine("\nJogador {0} é o ganhador!!",ganhador);
-            return winner=true;
-        }        
+
+        foreach(string s in coordWin) {
+
+            string[] item = s.Split(';');
+            if (vetor[int.Parse(item[0])] == c && vetor[int.Parse(item[1])] == c && vetor[int.Parse(item[2])] == c) {
+                Tabuleiro();
+                ganhador = c == 'X' ? 1 : 2;
+                Console.WriteLine("\nJogador {0} é o ganhador!!",ganhador);
+                return winner=true;
+            }   
+        }
+
        }
       return winner;
     }
