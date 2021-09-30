@@ -16,7 +16,7 @@ Aplicativo do famoso Jogo da Velha onde foi desenvolvido com uso da linguagem C#
 - Permitido apenas para o usuário digitar no intervalo de número de 1 à 9;
 
 ## Funcionamento
-- Passo 1: Solicita para Jogador um número no intervalo de 1 à 9, caso não for escolhido nos requisitos solicitado será sempre pedido um novo número;
+- Passo 1: Solicita para Jogador 1 ou 2 um número no intervalo de 1 à 9, caso não for escolhido nos requisitos solicitado será sempre pedido um novo número;
 - Passo 2: É verificado se a opção escolhida está preenchida, caso contrário gera um novo tabuleiro marcando com o símbolo do jogador;
 - Passo 3: Sistema verifica através de uma lista de possibilidades de vitória se há algum ganhador, caso retorno for verdadeiro será exibido mensagem informando o ganhador e encerra a aplicação, caso contrário continua;
 - Será solicitado de forma alternada para cada jogada de cada os passos 1,2 e 3;
